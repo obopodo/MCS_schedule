@@ -26,7 +26,7 @@ class Schedule():
         self.coverage = self.S.sum(axis=0)
 
     def is_solution(self):
-        return np.all(self.coverage == [8] * self.D)
+        return np.all(self.coverage >= 8)
 
     def mae(self):
         return mae_flat(self.coverage)
@@ -53,3 +53,9 @@ class Schedule():
 
     def __repr__(self):
         return np.array2string(self.S)
+
+    def copy(self):
+        c = Schedule(self.I)
+        c.S = self.S.copy()
+        c.update_coverage()
+        return c

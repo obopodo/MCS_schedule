@@ -2,19 +2,6 @@ import numpy as np
 import re
 from .generator import generate, mae, mae_flat
 
-class baby():
-    def __init__(self, I, D):
-        self.I = I
-        self.D = D
-        self.S = np.zeros((self.I, self.D), dtype=int)
-        self.coverage = np.zeros(self.D)
-
-    def update_coverage(self):
-        self.coverage = self.S.sum(axis=0)
-
-    def __repr__(self):
-        return np.array2string(self.S)
-
 class Schedule():
     def __init__(self, I):
         self.I = I

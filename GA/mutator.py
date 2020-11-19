@@ -50,6 +50,7 @@ def mutate(child, i = False):
     min_day = zeros_indexes[min_ones]
     row = list(row)
     row[max_day], row[min_day] = row[min_day], row[max_day] # switch 1 and 0
+
     _child.S[i] = row
     _child.update_coverage()
     return _child
